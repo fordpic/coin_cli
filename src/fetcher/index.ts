@@ -19,7 +19,7 @@ export const fetchTrending = async () => {
 
 export const fetchGainersNLosers = async () => {
 	try {
-		const response = await axios.get(TRENDING_LATEST, {
+		const response = await axios.get(GAINERS_N_LOSERS, {
 			headers: {
 				'X-CMC_PRO_API_KEY': CMC_KEY,
 			},
