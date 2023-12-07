@@ -1,30 +1,26 @@
 import chalk from 'chalk';
 import ora from 'ora';
-import { select, input } from '@inquirer/prompts';
+import figlet from 'figlet';
+import { select } from '@inquirer/prompts';
 import { Command } from 'commander';
 import { ACTIONS } from './constants';
 import { fetchTrending, fetchGainersNLosers } from './fetcher';
 
-// Convenience
 const log = console.log;
 const cyan = chalk.cyan;
 const green = chalk.green;
 const red = chalk.red;
 const program = new Command();
 
-// Flow is:
-// 1. What would you like to do? = User selects option
-// 2. Option makes the correct call & returns info in terminal
-
 async function main() {
 	const spinner = ora({
 		text: 'Firin up baby',
 	});
 
+	log(figlet.textSync('Ya Bois Token Tracker'));
+
 	try {
-		program
-			.name('Ya bois coin tracker')
-			.description('For making all the monies');
+		program.version('1.0.0').description('For making all the monies');
 
 		const choices = await select({
 			message: 'What would you like to do?',
