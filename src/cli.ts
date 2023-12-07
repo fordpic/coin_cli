@@ -58,6 +58,8 @@ async function main() {
 
 			log(`${cyan.bold('Gotchu king!')} See the gainers n losers below: \n`);
 			log(`${data}`);
+		} else {
+			log(`${red('You gotta select a real option my dood...try again lol')}`);
 		}
 	} catch (err) {
 		log('\n');
