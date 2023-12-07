@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { TRENDING_LATEST, GAINERS_N_LOSERS } from '../constants';
 import dotenv from 'dotenv';
-dotenv.config();
+import { TRENDING_LATEST, GAINERS_N_LOSERS } from '../constants';
 
+dotenv.config();
 const CMC_KEY = process.env.CMC_API_KEY;
 
 export const fetchTrending = async () => {
