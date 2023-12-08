@@ -4,7 +4,11 @@ import figlet from 'figlet';
 import { select } from '@inquirer/prompts';
 import { Command } from 'commander';
 import { ACTIONS } from './constants/index.js';
-import { fetchTrending, fetchGainersNLosers } from './fetcher/index.js';
+import {
+	fetchTrending,
+	fetchGainersNLosers,
+	fetchNewListingsByMCap,
+} from './fetcher/index.js';
 
 const log = console.log;
 const cyan = chalk.cyan;
@@ -33,6 +37,10 @@ async function main() {
 					name: 'See Biggest Gainers and Losers',
 					value: ACTIONS['GL'],
 				},
+				{
+					name: 'See New Listings By Market Cap',
+					value: ACTIONS['NL'],
+				},
 			],
 		});
 
@@ -54,6 +62,23 @@ async function main() {
 
 			log(`${cyan.bold('Gotchu king!')} See the gainers n losers below: \n`);
 			log(`${data}`);
+		} else if (choices === ACTIONS['NL']) {
+			log(
+				`${green(
+					'\nSnaggin the newest listings and sorting them by market cap for ya...'
+				)}`
+			);
+			spinner.start();
+
+			const { data } = await fetchNewListingsByMCap();
+			spinner.stop();
+
+			log(
+				`${cyan.bold(
+					'Gotchu king!'
+				)} See the newest listings by market cap below: \n`
+			);
+			log(`${JSON.stringify(data, null, 2)}`);
 		} else {
 			log(`${red('You gotta select a real option my dood...try again lol')}`);
 		}
