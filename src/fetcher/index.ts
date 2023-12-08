@@ -1,6 +1,6 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
-import { TRENDING_LATEST, GAINERS_N_LOSERS } from '../constants';
+import { TRENDING_LATEST, GAINERS_N_LOSERS } from '../constants/index.js';
 
 dotenv.config();
 const CMC_KEY = process.env.CMC_API_KEY;

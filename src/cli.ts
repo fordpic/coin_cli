@@ -3,8 +3,8 @@ import ora from 'ora';
 import figlet from 'figlet';
 import { select } from '@inquirer/prompts';
 import { Command } from 'commander';
-import { ACTIONS } from './constants';
-import { fetchTrending, fetchGainersNLosers } from './fetcher';
+import { ACTIONS } from './constants/index.js';
+import { fetchTrending, fetchGainersNLosers } from './fetcher/index.js';
 
 const log = console.log;
 const cyan = chalk.cyan;
